@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "896092387990",
+    "project_id": "moviedb-3203b",
+    "storage_bucket": "moviedb-3203b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896092387990:android:62b0ed96341cd82082e0b7",
+        "android_client_info": {
+          "package_name": "br.com.digitalhouse.marmeladamovie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896092387990-6vivd2mj32c0qr9omqhjct66ffb9h7sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtmzBftu87rRLB3P5AHBSJmmTmQICUlCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "896092387990-6vivd2mj32c0qr9omqhjct66ffb9h7sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

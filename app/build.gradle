@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -66,12 +67,13 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     //firebase
-    implementation platform('com.google.firebase:firebase-bom:26.3.0')
+    implementation platform('com.google.firebase:firebase-bom:26.8.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-auth-ktx'
 
     //paging library
-    implementation "androidx.paging:paging-runtime-ktx:2.1.2"
+    def pagingVersion = '3.0.0-alpha09'
+    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
 
     //glide
     def glide_version = "4.11.0"

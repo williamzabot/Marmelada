@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black">
 
     <ImageView
+        android:id="@+id/iv_wonder_woman_backgroud"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:src="@drawable/wonder_woman_background"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/iv_wonder_woman_backgroud" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <View
         android:id="@+id/opacityFilter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/black"
         android:layout_alignParentBottom="true"
-        android:alpha="0.7"/>
-
+        android:alpha="0.7"
+        android:background="@android:color/black" />
 
     <ImageView
+        android:id="@+id/iv_wonder_woman"
         android:layout_width="180dp"
         android:layout_height="250dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="115dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="115dp"
         android:src="@drawable/wonder_woman"
-        android:id="@+id/iv_wonder_woman" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/tv_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:text="Mulher-Maravilha 1984"
-        android:textStyle="bold"
         android:textColor="@color/white"
         android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        app:layout_constraintTop_toTopOf="@+id/iv_wonder_woman"
-        android:layout_marginStart="10dp"
-        android:id="@+id/tv_titulo"/>
+        app:layout_constraintTop_toTopOf="@+id/iv_wonder_woman" />
 
     <TextView
+        android:id="@+id/tv_ano"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="(2021)"
@@ -54,135 +54,133 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/iv_wonder_woman_backgroud"
         app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        app:layout_constraintTop_toBottomOf="@+id/tv_titulo"
-        android:id="@+id/tv_ano"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
 
     <TextView
+        android:id="@+id/tv_descricao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Uma nova era de maravilhas começa."
+        android:textColor="@color/gray"
         android:textSize="11sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/iv_wonder_woman_backgroud"
         app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ano"
-        android:id="@+id/tv_descricao"
-        android:textColor="@color/gray"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_ano" />
 
     <TextView
+        android:id="@+id/ano"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:text="17/12/2021 |"
+        android:textColor="@color/white"
         android:textSize="11sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        app:layout_constraintTop_toBottomOf="@+id/tv_descricao"
-        android:id="@+id/ano"
-        android:textColor="@color/white"
-        android:layout_marginStart="5dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_descricao" />
 
     <TextView
+        android:id="@+id/tv_genero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:text="Fantasia, Acão |"
+        android:textColor="@color/white"
         android:textSize="11sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ano"
-        app:layout_constraintTop_toBottomOf="@+id/tv_descricao"
-        android:id="@+id/tv_genero"
-        android:textColor="@color/white"
-        android:layout_marginStart="5dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_descricao" />
 
     <TextView
+        android:id="@+id/tv_tempo_duracao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:text="2h 30m"
+        android:textColor="@color/white"
         android:textSize="11sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/tv_genero"
-        app:layout_constraintTop_toBottomOf="@+id/tv_descricao"
-        android:id="@+id/tv_tempo_duracao"
-        android:textColor="@color/white"
-        android:layout_marginStart="5dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_descricao" />
 
     <ImageView
+        android:id="@+id/iv_porcentagem"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/porcentagem_02"
         app:layout_constraintEnd_toStartOf="@+id/tv_avalicao_dos_usuarios"
         app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        app:layout_constraintTop_toBottomOf="@+id/ano"
-        android:layout_marginTop="20dp"
-        android:id="@+id/iv_porcentagem"/>
+        app:layout_constraintTop_toBottomOf="@+id/ano" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Avaliação dos usuários"
-        app:layout_constraintStart_toEndOf="@+id/iv_porcentagem"
-        app:layout_constraintTop_toBottomOf="@+id/ano"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/tv_avalicao_dos_usuarios"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="10sp" />
-
-    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reproduzir trailer"
-        app:layout_constraintStart_toEndOf="@+id/iv_porcentagem"
-        app:layout_constraintTop_toBottomOf="@+id/tv_avalicao_dos_usuarios"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/tv_reproduzir_trailer"
-        android:gravity="center"
+        android:layout_marginTop="32dp"
+        android:text="Avaliação dos usuários"
         android:textColor="@color/white"
-        android:textStyle="bold"
         android:textSize="10sp"
-        android:drawableStart="@drawable/ic_baseline_play_arrow_24" />
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman_backgroud"
-        app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        android:src="@drawable/lista01"
-        android:id="@+id/iv_favoritos"
-        android:layout_marginStart="15dp"/>
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman_backgroud"
-        app:layout_constraintStart_toEndOf="@+id/iv_favoritos"
-        android:src="@drawable/lista02"
-        android:id="@+id/iv_compartilhar"
-        android:layout_marginStart="15dp"/>
-
-
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman_backgroud"
-        app:layout_constraintStart_toEndOf="@+id/iv_compartilhar"
-        android:src="@drawable/lista03"
-        android:id="@+id/iv_lista03"
-        android:layout_marginStart="15dp"/>
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_porcentagem"
+        app:layout_constraintTop_toBottomOf="@+id/ano" />
 
     <TextView
+        android:id="@+id/tv_reproduzir_trailer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:drawableStart="@drawable/ic_baseline_play_arrow_24"
+        android:gravity="center"
+        android:text="Reproduzir trailer"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_porcentagem"
+        app:layout_constraintTop_toBottomOf="@+id/tv_avalicao_dos_usuarios" />
+
+    <ImageView
+        android:id="@+id/iv_favoritos"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/lista01"
+        app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
+        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman_backgroud" />
+
+    <ImageView
+        android:id="@+id/iv_compartilhar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/lista02"
+        app:layout_constraintStart_toEndOf="@+id/iv_favoritos"
+        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman_backgroud" />
+
+    <ImageView
+        android:id="@+id/iv_lista03"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/lista03"
+        app:layout_constraintStart_toEndOf="@+id/iv_compartilhar"
+        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman_backgroud" />
+
+    <TextView
+        android:id="@+id/tv_sinopse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
         android:text="SINOPSE"
         android:textColor="@color/white"
-        android:textStyle="bold"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/constraint_layout_2"
-        android:id="@+id/tv_sinopse"/>
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraint_layout_2" />
 
     <TextView
         android:id="@+id/tv_resumo"
@@ -197,53 +195,51 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_sinopse" />
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_layout_2"
         android:layout_width="180dp"
         android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman"
-        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="16dp"
         android:background="@color/bluegray"
-        android:id="@+id/constraint_layout_2"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman" />
 
 
     <ImageView
+        android:id="@+id/iv_now_net_claro"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:layout_marginEnd="40dp"
         android:src="@drawable/now_net_claro"
         app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_2"
         app:layout_constraintEnd_toEndOf="@+id/constraint_layout_2"
         app:layout_constraintStart_toStartOf="@+id/constraint_layout_2"
-        app:layout_constraintTop_toTopOf="@+id/constraint_layout_2"
-        android:layout_marginEnd="40dp"
-        android:id="@+id/iv_now_net_claro"/>
+        app:layout_constraintTop_toTopOf="@+id/constraint_layout_2" />
 
     <TextView
+        android:id="@+id/tv_no_ar"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_2"
-        app:layout_constraintStart_toEndOf="@+id/iv_now_net_claro"
-        app:layout_constraintTop_toTopOf="@+id/constraint_layout_2"
         android:layout_marginStart="5dp"
-        android:textColor="@color/gray"
+        android:layout_marginBottom="10dp"
         android:text="No ar"
+        android:textColor="@color/gray"
         android:textSize="8sp"
         android:textStyle="bold"
-        android:id="@+id/tv_no_ar"
-        android:layout_marginBottom="10dp"/>
+        app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_2"
+        app:layout_constraintStart_toEndOf="@+id/iv_now_net_claro"
+        app:layout_constraintTop_toTopOf="@+id/constraint_layout_2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/iv_now_net_claro"
-        app:layout_constraintTop_toBottomOf="@+id/tv_no_ar"
+        android:layout_marginStart="5dp"
         android:text="Assista Agora"
         android:textColor="@color/white"
         android:textSize="8sp"
         android:textStyle="bold"
-        android:layout_marginStart="5dp" />
-
+        app:layout_constraintStart_toEndOf="@+id/iv_now_net_claro"
+        app:layout_constraintTop_toBottomOf="@+id/tv_no_ar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

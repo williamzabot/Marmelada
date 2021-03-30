@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    android:paddingBottom="10dp">
+    android:background="@color/black">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/catalogo_filmes"
@@ -101,7 +101,6 @@
                 android:textSize="30sp" />
 
         </androidx.cardview.widget.CardView>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,14 +1,12 @@
-package br.com.digitalhouse.marmeladamovie.ui
+package br.com.digitalhouse.marmeladamovie.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.com.digitalhouse.marmeladamovie.R
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-
+        setContentView(R.layout.activity_home)
     }
 }
