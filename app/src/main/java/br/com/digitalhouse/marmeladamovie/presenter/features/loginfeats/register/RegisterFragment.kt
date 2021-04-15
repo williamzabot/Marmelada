@@ -1,4 +1,4 @@
-package br.com.digitalhouse.marmeladamovie.ui.loginfeats.register
+package br.com.digitalhouse.marmeladamovie.presenter.features.loginfeats.register
 
 import androidx.fragment.app.Fragment
 import br.com.digitalhouse.marmeladamovie.R

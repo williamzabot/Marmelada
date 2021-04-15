@@ -1,4 +1,4 @@
-package br.com.digitalhouse.marmeladamovie.ui.loginfeats.reset
+package br.com.digitalhouse.marmeladamovie.presenter.features.loginfeats.reset
 
 import androidx.fragment.app.Fragment
 import br.com.digitalhouse.marmeladamovie.R

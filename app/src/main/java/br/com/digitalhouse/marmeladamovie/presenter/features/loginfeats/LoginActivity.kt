@@ -1,4 +1,4 @@
-package br.com.digitalhouse.marmeladamovie.ui.loginfeats
+package br.com.digitalhouse.marmeladamovie.presenter.features.loginfeats
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
