@@ -17,10 +17,3 @@ data class Movie(
     val vote_average: Double,
     val vote_count: Int
 )
-
-//fun Movie.toPopularMovie(): PopularMovie {
-//    val url = "https://image.tmdb.org/t/p/w154${poster_path}"
-//    return PopularMovie(
-//         title = title,data = release_date, url = url
-//    )
-//}

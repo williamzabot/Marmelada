@@ -2,31 +2,32 @@ package br.com.digitalhouse.marmeladamovie.presenter.features.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import androidx.paging.PagingDataAdapter
+import androidx.recyclerview.widget.DiffUtil
 import br.com.digitalhouse.marmeladamovie.data.remote.model.Movie
 import br.com.digitalhouse.marmeladamovie.databinding.ItemFilmsSeriesBinding
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class MovieAdapter(private val clickMovie: (movie: Movie) -> Unit) :
+    PagingDataAdapter<Movie, MovieViewHolder>(MOVIE_COMPARATOR) {
 
-    var movies = listOf<Movie>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
+    companion object {
+        private val MOVIE_COMPARATOR = object : DiffUtil.ItemCallback<Movie>() {
+            override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+                return oldItem == newItem
+            }
         }
+    }
 
-    inner class MovieViewHolder(private val binding: ItemFilmsSeriesBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(movie: Movie) {
-            val url = "https://image.tmdb.org/t/p/w154${movie.poster_path}"
-            binding.apply {
-                movieTitle.text = movie.title
-                movieData.text = movie.release_date
-                Glide.with(movieImg)
-                    .load(url)
-                    .into(movieImg)}
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        getItem(position)?.let { movie ->
+            holder.bind(movie)
+            holder.itemView.setOnClickListener {
+                clickMovie(movie)
+            }
         }
     }
 
@@ -37,11 +38,4 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         return MovieViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        return holder.bind(movies[position])
-    }
-
-    override fun getItemCount(): Int {
-        return movies.size
-    }
 }
