@@ -14,7 +14,7 @@ class MovieRepositoryImpl @Inject constructor(): MovieRepository {
     private val movieApi = RetrofitModule.getMovieApi()
 
     override suspend fun getMovies(page: Int): Result<MovieResults> {
-        val response = movieApi.getPopularMovies(TOKEN, page)
+        val response = movieApi.getPopularMovies(TOKEN, page, "pt-br")
         return when(response.code()){
             200 -> Success(response.body()!!)
             else -> Failure(Exception())

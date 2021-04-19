@@ -1,9 +1,11 @@
 package br.com.digitalhouse.marmeladamovie.data.remote.model
 
+import java.io.Serializable
+
 
 data class Movie(
     val adult: Boolean,
-    val backdrop_path: String,
+    val backdrop_path : String,
     val genre_ids: List<Int>,
     val id: Int,
     val original_language: String,
@@ -16,4 +18,4 @@ data class Movie(
     val video: Boolean,
     val vote_average: Double,
     val vote_count: Int
-)
+) : Serializable

@@ -11,7 +11,8 @@ interface MovieApi {
     @GET("movie/popular/")
     suspend fun getPopularMovies(
         @Header("Authorization") token: String,
-        @Query("page") page : Int
+        @Query("page") page : Int,
+        @Query("language") language : String
     ): Response<MovieResults>
 
 }

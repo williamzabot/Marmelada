@@ -1,245 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
-
-    <ImageView
-        android:id="@+id/iv_wonder_woman_backgroud"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:src="@drawable/wonder_woman_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/opacityFilter"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:alpha="0.7"
-        android:background="@android:color/black" />
-
-    <ImageView
-        android:id="@+id/iv_wonder_woman"
-        android:layout_width="180dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="115dp"
-        android:src="@drawable/wonder_woman"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_titulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="Mulher-Maravilha 1984"
-        android:textColor="@color/white"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        app:layout_constraintTop_toTopOf="@+id/iv_wonder_woman" />
-
-    <TextView
-        android:id="@+id/tv_ano"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="(2021)"
-        android:textColor="@color/white"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/iv_wonder_woman_backgroud"
-        app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        app:layout_constraintTop_toBottomOf="@+id/tv_titulo" />
-
-    <TextView
-        android:id="@+id/tv_descricao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Uma nova era de maravilhas começa."
-        android:textColor="@color/gray"
-        android:textSize="11sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/iv_wonder_woman_backgroud"
-        app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        app:layout_constraintTop_toBottomOf="@+id/tv_ano" />
-
-    <TextView
-        android:id="@+id/ano"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="17/12/2021 |"
-        android:textColor="@color/white"
-        android:textSize="11sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        app:layout_constraintTop_toBottomOf="@+id/tv_descricao" />
-
-    <TextView
-        android:id="@+id/tv_genero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="Fantasia, Acão |"
-        android:textColor="@color/white"
-        android:textSize="11sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/ano"
-        app:layout_constraintTop_toBottomOf="@+id/tv_descricao" />
-
-    <TextView
-        android:id="@+id/tv_tempo_duracao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="2h 30m"
-        android:textColor="@color/white"
-        android:textSize="11sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/tv_genero"
-        app:layout_constraintTop_toBottomOf="@+id/tv_descricao" />
-
-    <ImageView
-        android:id="@+id/iv_porcentagem"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/porcentagem_02"
-        app:layout_constraintEnd_toStartOf="@+id/tv_avalicao_dos_usuarios"
-        app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        app:layout_constraintTop_toBottomOf="@+id/ano" />
-
-    <TextView
-        android:id="@+id/tv_avalicao_dos_usuarios"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Avaliação dos usuários"
-        android:textColor="@color/white"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_porcentagem"
-        app:layout_constraintTop_toBottomOf="@+id/ano" />
-
-    <TextView
-        android:id="@+id/tv_reproduzir_trailer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:drawableStart="@drawable/ic_baseline_play_arrow_24"
-        android:gravity="center"
-        android:text="Reproduzir trailer"
-        android:textColor="@color/white"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_porcentagem"
-        app:layout_constraintTop_toBottomOf="@+id/tv_avalicao_dos_usuarios" />
-
-    <ImageView
-        android:id="@+id/iv_favoritos"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:src="@drawable/lista01"
-        app:layout_constraintStart_toEndOf="@+id/iv_wonder_woman"
-        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman_backgroud" />
-
-    <ImageView
-        android:id="@+id/iv_compartilhar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:src="@drawable/lista02"
-        app:layout_constraintStart_toEndOf="@+id/iv_favoritos"
-        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman_backgroud" />
-
-    <ImageView
-        android:id="@+id/iv_lista03"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="15dp"
-        android:src="@drawable/lista03"
-        app:layout_constraintStart_toEndOf="@+id/iv_compartilhar"
-        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman_backgroud" />
-
-    <TextView
-        android:id="@+id/tv_sinopse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:text="SINOPSE"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraint_layout_2" />
-
-    <TextView
-        android:id="@+id/tv_resumo"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:text="Em 1984, Diana Prince entra em conflito com dois inimigos formidáveis. Maxwell Lord e a Mulher-Leopardo, enquanto reencontra misteriosamente com seu antigo interesse amoroso Steve Trevor."
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_sinopse" />
-
+    android:background="@android:color/background_dark">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_layout_2"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:background="@color/bluegray"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_wonder_woman" />
-
-
-    <ImageView
-        android:id="@+id/iv_now_net_claro"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="40dp"
-        android:src="@drawable/now_net_claro"
-        app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_2"
-        app:layout_constraintEnd_toEndOf="@+id/constraint_layout_2"
-        app:layout_constraintStart_toStartOf="@+id/constraint_layout_2"
-        app:layout_constraintTop_toTopOf="@+id/constraint_layout_2" />
-
-    <TextView
-        android:id="@+id/tv_no_ar"
-        android:layout_width="50dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="10dp"
-        android:text="No ar"
-        android:textColor="@color/gray"
-        android:textSize="8sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/constraint_layout_2"
-        app:layout_constraintStart_toEndOf="@+id/iv_now_net_claro"
-        app:layout_constraintTop_toTopOf="@+id/constraint_layout_2" />
+        android:paddingBottom="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:text="Assista Agora"
-        android:textColor="@color/white"
-        android:textSize="8sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/iv_now_net_claro"
-        app:layout_constraintTop_toBottomOf="@+id/tv_no_ar" />
+        <ImageView
+            android:id="@+id/banner_detail"
+            android:layout_width="match_parent"
+            android:layout_height="390dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/wonder_woman_background" />
+
+        <View
+            android:id="@+id/opacityFilter"
+            android:layout_width="match_parent"
+            android:layout_height="390dp"
+            android:layout_alignParentBottom="true"
+            android:alpha="0.7"
+            android:background="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageview_detail"
+            android:layout_width="180dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="80dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/wonder_woman" />
+
+        <TextView
+            android:id="@+id/detail_title"
+            android:layout_width="0dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageview_detail"
+            app:layout_constraintTop_toTopOf="@+id/imageview_detail"
+            tools:text="Mulher-Maravilha 1984" />
+
+        <TextView
+            android:id="@+id/detail_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2021"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/banner_detail"
+            app:layout_constraintStart_toEndOf="@+id/imageview_detail"
+            app:layout_constraintTop_toBottomOf="@+id/detail_title" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/detail_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageview_detail"
+            app:layout_constraintTop_toBottomOf="@+id/detail_year"
+            tools:text="17/12/2021" />
+
+        <TextView
+            android:id="@+id/detail_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageview_detail"
+            app:layout_constraintTop_toBottomOf="@+id/detail_date"
+            tools:text="Fantasia, Acão" />
+
+        <TextView
+            android:id="@+id/detail_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageview_detail"
+            app:layout_constraintTop_toBottomOf="@+id/detail_gender"
+            tools:text="2h 30m" />
+
+        <TextView
+            android:id="@+id/detail_user_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:text="Avaliação dos usuários:"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageview_detail"
+            app:layout_constraintTop_toBottomOf="@+id/detail_duration" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="false"
+            android:max="5"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            android:theme="@style/MyRatingBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageview_detail"
+            app:layout_constraintTop_toBottomOf="@id/detail_user_rating"
+            tools:rating="3.5" />
+
+        <TextView
+            android:id="@+id/detail_trailer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/ic_baseline_play_arrow_24"
+            android:gravity="center"
+            android:text="Reproduzir trailer"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageview_detail"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+        <ImageView
+            android:id="@+id/detail_favorite"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/heartadd"
+            app:layout_constraintBottom_toBottomOf="@id/imageview_detail"
+            app:layout_constraintStart_toEndOf="@+id/imageview_detail" />
+
+        <ImageView
+            android:id="@+id/detail_share"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/share"
+            app:layout_constraintBottom_toBottomOf="@id/detail_favorite"
+            app:layout_constraintStart_toEndOf="@+id/detail_favorite"
+            app:layout_constraintTop_toTopOf="@id/detail_favorite" />
+
+        <ImageView
+            android:id="@+id/detail_search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/searchicon"
+            app:layout_constraintBottom_toBottomOf="@id/detail_share"
+            app:layout_constraintStart_toEndOf="@+id/detail_share"
+            app:layout_constraintTop_toTopOf="@id/detail_share" />
+
+        <TextView
+            android:id="@+id/detail_title_synopsis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="SINOPSE"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/imageview_detail"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_detail" />
+
+        <TextView
+            android:id="@+id/detail_synopsis"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:paddingEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/detail_title_synopsis"
+            app:layout_constraintTop_toBottomOf="@+id/detail_title_synopsis"
+            tools:text="Em 1984, Diana Prince entra em conflito com dois inimigos formidáveis. Maxwell Lord e a Mulher-Leopardo, enquanto reencontra misteriosamente com seu antigo interesse amoroso Steve Trevor." />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

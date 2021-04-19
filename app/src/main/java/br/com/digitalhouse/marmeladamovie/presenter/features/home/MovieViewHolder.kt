@@ -3,6 +3,7 @@ package br.com.digitalhouse.marmeladamovie.presenter.features.home
 import androidx.recyclerview.widget.RecyclerView
 import br.com.digitalhouse.marmeladamovie.data.remote.model.Movie
 import br.com.digitalhouse.marmeladamovie.databinding.ItemFilmsSeriesBinding
+import br.com.digitalhouse.marmeladamovie.presenter.extensions.load
 import com.bumptech.glide.Glide
 
 class MovieViewHolder(private val binding: ItemFilmsSeriesBinding) :
@@ -13,8 +14,7 @@ class MovieViewHolder(private val binding: ItemFilmsSeriesBinding) :
         binding.apply {
             movieTitle.text = movie.title
             movieData.text = movie.release_date
-            Glide.with(movieImg)
-                .load(url)
-                .into(movieImg)}
+            movieImg.load(url)
+        }
     }
 }
