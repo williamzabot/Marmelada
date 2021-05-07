@@ -9,11 +9,13 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import br.com.digitalhouse.marmeladamovie.R
+import com.facebook.CallbackManager
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var navController : NavController
     private lateinit var appBarConfiguration : AppBarConfiguration
+    private lateinit var callbackManager : CallbackManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

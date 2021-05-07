@@ -134,8 +134,10 @@
             app:layout_constraintEnd_toEndOf="@id/view_line_one"
             app:layout_constraintTop_toBottomOf="@id/view_line_one" />
 
+
+
         <ImageView
-            android:id="@+id/icon_facebook"
+            android:id="@+id/buttonFacebook"
             android:layout_width="60dp"
             android:src="@drawable/facebook_icon"
             android:layout_height="60dp"
@@ -155,6 +157,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/icon_facebook" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonFacebook" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
