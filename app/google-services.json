@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "894917906353-m6l916824os8itknjjb5vntm59jmj8lt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.digitalhouse.marmeladamovie",
+            "certificate_hash": "8989222eb832b9f90efc4c7b325f79bcd01216f7"
+          }
+        },
+        {
           "client_id": "894917906353-vecunq9o3v73a2qkfh5dbr57o3n75jv7.apps.googleusercontent.com",
           "client_type": 3
         }

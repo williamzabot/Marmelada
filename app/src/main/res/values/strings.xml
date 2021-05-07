@@ -4,4 +4,6 @@
 
     <string name="app_name">MarmeladaMovie</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!--    <string name="default_web_client_id">894917906353-vecunq9o3v73a2qkfh5dbr57o3n75jv7.apps.googleusercontent.com</string>-->
 </resources>

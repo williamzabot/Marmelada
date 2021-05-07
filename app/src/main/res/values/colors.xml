@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="darksaphire">#0c2461</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#14171A</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bluegray">#37474F</color>
     <color name="gray">#9E9E9E</color>
+
+
 </resources>

@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MarmeladaMovie">
         <activity android:name="br.com.digitalhouse.marmeladamovie.presenter.features.home.HomeActivity"/>
-        <activity android:name="br.com.digitalhouse.marmeladamovie.presenter.features.loginfeats.LoginActivity" />
+        <activity android:name="br.com.digitalhouse.marmeladamovie.presenter.features.loginfeats.LoginActivity"/>
         <activity android:name="br.com.digitalhouse.marmeladamovie.presenter.features.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>

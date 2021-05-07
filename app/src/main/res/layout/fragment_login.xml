@@ -129,6 +129,7 @@
             android:id="@+id/icon_google"
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:onClick="signin"
             android:layout_marginTop="14dp"
             android:src="@drawable/google_icon"
             app:layout_constraintEnd_toEndOf="@id/view_line_one"
