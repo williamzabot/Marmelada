@@ -1,7 +1,6 @@
 package br.com.digitalhouse.marmeladamovie.presenter.features.loginfeats.login
 
 import android.content.Intent
-import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -12,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.digitalhouse.marmeladamovie.R
 import br.com.digitalhouse.marmeladamovie.presenter.features.home.HomeActivity
-import br.com.digitalhouse.marmeladamovie.presenter.features.loginfeats.LoginActivity
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -52,6 +50,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             sign()
         }
 
+        view.findViewById<ImageView>(R.id.buttonFacebook).setOnClickListener {
+            signInFacebook()
+        }
+
         view.findViewById<TextView>(R.id.txt_register).setOnClickListener {
             val action = LoginFragmentDirections.loginToRegister()
             findNavController().navigate(action)
@@ -71,8 +73,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         startActivityForResult(sigInIntent, 200)
     }
 
+    private fun signInFacebook(){
+        loginFacebook()
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+       callBackManager.onActivityResult(requestCode, resultCode, data)
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == 200) {

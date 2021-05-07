@@ -142,6 +142,7 @@
             android:layout_width="60dp"
             android:src="@drawable/facebook_icon"
             android:layout_height="60dp"
+            android:onClick="signInFacebook"
             android:layout_marginTop="14dp"
             app:layout_constraintStart_toStartOf="@id/view_line_two"
             app:layout_constraintTop_toBottomOf="@id/view_line_two" />
