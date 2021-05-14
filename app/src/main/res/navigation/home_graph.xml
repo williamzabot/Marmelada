@@ -20,9 +20,16 @@
 
     <fragment
         android:id="@+id/favoriteFragment"
-        android:name="br.com.digitalhouse.marmeladamovie.presenter.features.favorite.FavoritFragment"
+        android:name="br.com.digitalhouse.marmeladamovie.presenter.features.favorite.FavoriteFragment"
         android:label="Favoritos"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite">
+
+        <action
+            android:id="@+id/action_favorite_to_detail"
+            app:destination="@id/detailFragment"
+            />
+
+    </fragment>
 
     <fragment
         android:id="@+id/profileFragment"
@@ -38,7 +45,15 @@
 
         <argument
             android:name="movie"
-            app:argType="br.com.digitalhouse.marmeladamovie.data.remote.model.Movie" />
+            app:argType="br.com.digitalhouse.marmeladamovie.data.remote.model.Movie"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+        <argument
+            android:name="favorite"
+            app:argType="br.com.digitalhouse.marmeladamovie.data.local.entity.MovieFavorite"
+            app:nullable="true"
+            android:defaultValue="@null"/>
 
     </fragment>
 

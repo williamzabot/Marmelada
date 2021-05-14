@@ -14,7 +14,6 @@ class MovieUseCase @Inject constructor(private val movieRepository: MovieReposit
         return when(val result = movieRepository.getMovies(params.page)){
             is Result.Success -> Result.Success(result.data)
             is Result.Failure -> Result.Failure(result.exception)
-
         }
     }
 }

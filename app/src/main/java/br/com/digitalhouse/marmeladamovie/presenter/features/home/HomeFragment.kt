@@ -7,22 +7,24 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.com.digitalhouse.marmeladamovie.databinding.FragmentHomeBinding
 import br.com.digitalhouse.marmeladamovie.presenter.extensions.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment: Fragment() {
+class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<HomeViewModel>()
-    private val navController by lazy { findNavController()}
-    private val adapter by lazy { MovieAdapter{ movie ->
-        navController.navigate(HomeFragmentDirections.homeToDetail(movie))
-    } }
+    private val navController by lazy { findNavController() }
+    private val adapter by lazy {
+        MovieAdapter { movie ->
+            navController.navigate(HomeFragmentDirections.homeToDetail(movie))
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,10 +42,10 @@ class HomeFragment: Fragment() {
         observeEvents()
     }
 
-    private fun observeEvents(){
-        viewModel.movies.observe(viewLifecycleOwner){
+    private fun observeEvents() {
+        viewModel.movies.observe(viewLifecycleOwner, Observer {
             adapter.submitData(lifecycle, it)
-        }
+        })
     }
 
 }

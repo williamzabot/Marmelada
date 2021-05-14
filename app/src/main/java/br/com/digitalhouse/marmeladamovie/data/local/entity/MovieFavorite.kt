@@ -1,9 +1,14 @@
-package br.com.digitalhouse.marmeladamovie.data.remote.model
+package br.com.digitalhouse.marmeladamovie.data.local.entity
 
-import br.com.digitalhouse.marmeladamovie.data.local.entity.MovieFavorite
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import br.com.digitalhouse.marmeladamovie.data.remote.model.Movie
 import java.io.Serializable
 
-data class Movie(
+@Entity(tableName = "favorites")
+data class MovieFavorite(
+    @PrimaryKey(autoGenerate = true)
+    val idFavorite: Long = 0,
     val adult: Boolean,
     val backdrop_path: String,
     val id: Int,
@@ -16,13 +21,11 @@ data class Movie(
     val title: String,
     val video: Boolean,
     val vote_average: Double,
-    val vote_count: Int,
-    var favorite : Boolean = false,
-    var idFavorite : Long = 0
+    val vote_count: Int
 ) : Serializable
 
-fun Movie.toFavorite(): MovieFavorite {
-    return MovieFavorite(
+fun MovieFavorite.toMovie(): Movie {
+    return Movie(
         adult = adult,
         backdrop_path = backdrop_path,
         id = id,
@@ -35,7 +38,8 @@ fun Movie.toFavorite(): MovieFavorite {
         title = title,
         video = video,
         vote_average = vote_average,
-        vote_count = vote_count
+        vote_count = vote_count,
+        favorite = true,
+        idFavorite = idFavorite
     )
-
 }

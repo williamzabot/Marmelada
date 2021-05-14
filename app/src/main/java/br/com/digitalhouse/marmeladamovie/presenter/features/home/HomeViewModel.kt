@@ -1,6 +1,5 @@
 package br.com.digitalhouse.marmeladamovie.presenter.features.home
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -8,8 +7,11 @@ import androidx.paging.PagingConfig
 import androidx.paging.cachedIn
 import androidx.paging.liveData
 import br.com.digitalhouse.marmeladamovie.domain.usecases.MovieUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HomeViewModel @ViewModelInject constructor(private val movieUseCase: MovieUseCase):
+@HiltViewModel
+class HomeViewModel @Inject constructor(private val movieUseCase: MovieUseCase):
     ViewModel() {
 
     val movies = Pager(
