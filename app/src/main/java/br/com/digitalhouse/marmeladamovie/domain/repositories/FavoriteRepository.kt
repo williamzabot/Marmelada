@@ -7,5 +7,5 @@ interface FavoriteRepository {
 
     suspend fun insert(movie: MovieFavorite): Long
 
-    suspend fun delete(id: Long)
+    suspend fun delete(favorite: MovieFavorite)
 }

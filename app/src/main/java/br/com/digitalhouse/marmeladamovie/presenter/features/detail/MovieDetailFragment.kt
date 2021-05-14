@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import br.com.digitalhouse.marmeladamovie.R
+import br.com.digitalhouse.marmeladamovie.data.local.entity.MovieFavorite
 import br.com.digitalhouse.marmeladamovie.data.local.entity.toMovie
 import br.com.digitalhouse.marmeladamovie.data.remote.model.Movie
 import br.com.digitalhouse.marmeladamovie.databinding.FragmentDetailBinding
@@ -28,9 +29,10 @@ class MovieDetailFragment : Fragment() {
     private val binding get() = _binding!!
     private val args by navArgs<MovieDetailFragmentArgs>()
     private val viewModel by viewModels<MovieDetailViewModel>()
-    private lateinit var movie : Movie
-    private var heartAdd : Drawable? = null
-    private var heartOk : Drawable? = null
+    private lateinit var movie: Movie
+    private var favorite: MovieFavorite? = null
+    private var heartAdd: Drawable? = null
+    private var heartOk: Drawable? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -60,9 +62,11 @@ class MovieDetailFragment : Fragment() {
     private fun heartClick() {
         binding.detailFavorite.setOnClickListener {
             if (movie.favorite) {
-                viewModel.desfavorite(movie.idFavorite)
-                binding.detailFavorite.setImageDrawable(heartAdd)
-                movie.favorite = false
+                favorite?.let {
+                    viewModel.desfavorite(it)
+                    binding.detailFavorite.setImageDrawable(heartAdd)
+                    movie.favorite = false
+                }
             } else {
                 viewModel.favorite(movie)
                 movie.favorite = true
@@ -78,6 +82,7 @@ class MovieDetailFragment : Fragment() {
 
     private fun observeEvents() {
         viewModel.isFavorite.observe(viewLifecycleOwner, Observer {
+            favorite = it
             movie = it.toMovie()
             binding.detailFavorite.setImageDrawable(heartOk)
         })

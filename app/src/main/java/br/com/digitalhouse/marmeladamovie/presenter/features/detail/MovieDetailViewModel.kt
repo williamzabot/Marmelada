@@ -25,9 +25,9 @@ class MovieDetailViewModel @Inject constructor(private val favoriteRepository: F
         }
     }
 
-    fun desfavorite(idFavorite: Long) {
+    fun desfavorite(favorite : MovieFavorite) {
         viewModelScope.launch {
-            favoriteRepository.delete(idFavorite)
+            favoriteRepository.delete(favorite)
         }
     }
 
