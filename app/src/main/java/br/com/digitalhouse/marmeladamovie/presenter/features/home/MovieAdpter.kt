@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import br.com.digitalhouse.marmeladamovie.data.remote.model.Movie
+import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.Movie
 import br.com.digitalhouse.marmeladamovie.databinding.ItemFilmsSeriesBinding
 
 class MovieAdapter(private val clickMovie: (movie: Movie) -> Unit) :

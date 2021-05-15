@@ -20,8 +20,8 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
     private val viewModel by viewModels<FavoriteViewModel>()
     private val adapter by lazy {
         FavoriteAdapter { favorite ->
-            FavoriteFragmentDirections.actionFavoriteToDetail(favorite = favorite)
-
+            val action = FavoriteFragmentDirections.actionFavoriteToDetail(favorite = favorite)
+            navController.navigate(action)
         }
     }
 

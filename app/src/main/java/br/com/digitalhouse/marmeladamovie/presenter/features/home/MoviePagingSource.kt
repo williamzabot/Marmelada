@@ -1,7 +1,7 @@
 package br.com.digitalhouse.marmeladamovie.presenter.features.home
 
 import androidx.paging.PagingSource
-import br.com.digitalhouse.marmeladamovie.data.remote.model.Movie
+import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.Movie
 import br.com.digitalhouse.marmeladamovie.domain.usecases.MovieUseCase
 import br.com.digitalhouse.marmeladamovie.domain.utils.Result
 import retrofit2.HttpException

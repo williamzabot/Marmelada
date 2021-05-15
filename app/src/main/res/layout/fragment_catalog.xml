@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="@color/black"
+    tools:viewBindingIgnore="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
@@ -14,14 +15,13 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/catalogo_filmes"
-            android:layout_width="250dp"
-            android:layout_height="180dp"
+            android:layout_width="300dp"
+            android:layout_height="210dp"
             android:layout_marginTop="50dp"
             app:cardCornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints">
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -44,14 +44,13 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/catalogo_series"
-            android:layout_width="250dp"
-            android:layout_height="180dp"
+            android:layout_width="300dp"
+            android:layout_height="210dp"
             android:layout_marginTop="40dp"
             app:cardCornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/catalogo_filmes"
-            tools:ignore="MissingConstraints">
+            app:layout_constraintTop_toBottomOf="@id/catalogo_filmes">
 
             <ImageView
                 android:layout_width="match_parent"
@@ -72,35 +71,6 @@
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/listas"
-            android:layout_width="250dp"
-            android:layout_height="180dp"
-            android:layout_marginTop="40dp"
-            app:cardCornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/catalogo_series"
-            tools:ignore="MissingConstraints">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/imgbb" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:alpha="0.8"
-                android:backgroundTint="@android:color/black"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="LISTAS"
-                android:textColor="@color/white"
-                android:textSize="30sp" />
-
-        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

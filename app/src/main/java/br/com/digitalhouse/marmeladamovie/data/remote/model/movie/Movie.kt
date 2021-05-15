@@ -1,4 +1,4 @@
-package br.com.digitalhouse.marmeladamovie.data.remote.model
+package br.com.digitalhouse.marmeladamovie.data.remote.model.movie
 
 import br.com.digitalhouse.marmeladamovie.data.local.entity.MovieFavorite
 import java.io.Serializable

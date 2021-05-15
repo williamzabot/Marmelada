@@ -1,10 +1,9 @@
 package br.com.digitalhouse.marmeladamovie.domain.usecases
 
-import br.com.digitalhouse.marmeladamovie.data.remote.model.MovieResults
+import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.MovieResults
 import br.com.digitalhouse.marmeladamovie.domain.repositories.MovieRepository
 import br.com.digitalhouse.marmeladamovie.domain.utils.Result
 import javax.inject.Inject
-
 
 class MovieUseCase @Inject constructor(private val movieRepository: MovieRepository):
     BaseUseCase<MovieResults, MovieUseCase.Params>() {

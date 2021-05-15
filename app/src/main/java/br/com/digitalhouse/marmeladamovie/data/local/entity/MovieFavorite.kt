@@ -2,7 +2,7 @@ package br.com.digitalhouse.marmeladamovie.data.local.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import br.com.digitalhouse.marmeladamovie.data.remote.model.Movie
+import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.Movie
 import java.io.Serializable
 
 @Entity(tableName = "favorites")
