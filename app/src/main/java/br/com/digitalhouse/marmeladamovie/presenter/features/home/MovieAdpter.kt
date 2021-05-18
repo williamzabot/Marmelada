@@ -37,5 +37,4 @@ class MovieAdapter(private val clickMovie: (movie: Movie) -> Unit) :
         )
         return MovieViewHolder(binding)
     }
-
 }

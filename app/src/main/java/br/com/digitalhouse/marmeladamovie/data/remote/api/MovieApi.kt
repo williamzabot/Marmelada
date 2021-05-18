@@ -2,6 +2,7 @@ package br.com.digitalhouse.marmeladamovie.data.remote.api
 
 import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.MovieResults
 import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.streaming.Streaming
+import br.com.digitalhouse.marmeladamovie.data.remote.model.search.SearchResult
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -17,7 +18,7 @@ interface MovieApi {
         @Query("language") language: String
     ): Response<MovieResults>
 
-    @GET("search/movie/")
+    @GET("search/multi")
     suspend fun searchMovie(
         @Header("Authorization") token: String,
         @Query("query") query: String,

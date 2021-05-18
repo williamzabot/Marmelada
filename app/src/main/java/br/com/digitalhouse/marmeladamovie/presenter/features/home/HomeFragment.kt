@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import br.com.digitalhouse.marmeladamovie.databinding.FragmentHomeBinding
 import br.com.digitalhouse.marmeladamovie.presenter.extensions.hideKeyboard
+import br.com.digitalhouse.marmeladamovie.presenter.extensions.navigateWithAnimations
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,8 +39,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerviewMovies.adapter = adapter
+        binding.recyclerviewMovies.requestFocus()
         (activity as AppCompatActivity).hideKeyboard()
         observeEvents()
+        binding.edittextSearch.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                navController.navigateWithAnimations(HomeFragmentDirections.homeToSearch())
+            }
+        }
     }
 
     private fun observeEvents() {

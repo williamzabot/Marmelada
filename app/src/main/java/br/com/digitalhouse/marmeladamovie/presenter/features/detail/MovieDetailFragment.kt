@@ -97,7 +97,6 @@ class MovieDetailFragment : Fragment() {
         viewModel.isFavorite.observe(viewLifecycleOwner, Observer {
             favorite = it
             movie = it.toMovie()
-            movie.favorite = true
             binding.detailFavorite.setImageDrawable(heartOk)
         })
 
@@ -117,12 +116,21 @@ class MovieDetailFragment : Fragment() {
         val urlPoster = "https://image.tmdb.org/t/p/w154${movie.poster_path}"
         val urlBanner = "https://image.tmdb.org/t/p/w500${movie.backdrop_path}"
         binding.apply {
+          /*  if(movie.media_type == "tv"){
+                separateYear.visi
+
+            }*/
+
             imageviewDetail.load(urlPoster)
             bannerDetail.load(urlBanner)
-            detailTitle.text = movie.title
+            if (movie.title == null) {
+                detailTitle.text = movie.name
+            } else {
+                detailTitle.text = movie.title
+            }
             detailSynopsis.text = movie.overview
-            detailYear.text = movie.release_date.year()
-            detailDate.text = movie.release_date.toDate()
+            detailYear.text = movie.release_date?.year()
+            detailDate.text = movie.release_date?.toDate()
             ratingBar.rating = (movie.vote_average / 2).toFloat()
 
             if (movie.favorite) {

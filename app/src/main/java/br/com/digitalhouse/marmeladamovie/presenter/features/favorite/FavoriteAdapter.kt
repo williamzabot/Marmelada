@@ -44,9 +44,13 @@ class FavoriteAdapter(private val clickFavorite: (movie: MovieFavorite) -> Unit)
 
         fun bind(movie: MovieFavorite) {
             val url = "https://image.tmdb.org/t/p/w154${movie.poster_path}"
-            txtTitle.text = movie.title
-            txtDate.text = movie.release_date.toDate()
-            txtYear.text = movie.release_date.year()
+            if (movie.title == null) {
+                txtTitle.text = movie.name
+            } else {
+                txtTitle.text = movie.title
+            }
+            txtDate.text = movie.release_date?.toDate()
+            txtYear.text = movie.release_date?.year()
             img.load(url)
             ratingBar.rating = (movie.vote_average / 2).toFloat()
 

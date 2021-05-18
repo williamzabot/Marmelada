@@ -2,6 +2,8 @@ package br.com.digitalhouse.marmeladamovie.data.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import br.com.digitalhouse.marmeladamovie.data.AppDatabase
 import br.com.digitalhouse.marmeladamovie.data.local.dao.FavoriteDAO
 import dagger.Module

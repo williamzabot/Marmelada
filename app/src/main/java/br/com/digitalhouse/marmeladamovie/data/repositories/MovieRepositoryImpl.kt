@@ -3,6 +3,7 @@ package br.com.digitalhouse.marmeladamovie.data.repositories
 import br.com.digitalhouse.marmeladamovie.data.di.RetrofitModule
 import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.MovieResults
 import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.streaming.Streaming
+import br.com.digitalhouse.marmeladamovie.data.remote.model.search.SearchResult
 import br.com.digitalhouse.marmeladamovie.domain.repositories.MovieRepository
 import br.com.digitalhouse.marmeladamovie.domain.utils.Result
 import br.com.digitalhouse.marmeladamovie.domain.utils.Result.*
@@ -22,8 +23,8 @@ class MovieRepositoryImpl @Inject constructor() : MovieRepository {
         }
     }
 
-    override suspend fun searchMovies(page: Int, query: String): Result<MovieResults> {
-        val response = movieApi.searchMovie(TOKEN, query, page, "pt-br")
+    override suspend fun searchMovies(query: String): Result<MovieResults> {
+        val response = movieApi.searchMovie(TOKEN, query, 1, "pt-br")
         return when (response.code()) {
             200 -> Success(response.body()!!)
             else -> Failure(Exception())

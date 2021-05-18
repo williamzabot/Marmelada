@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import br.com.digitalhouse.marmeladamovie.data.local.dao.FavoriteDAO
 import br.com.digitalhouse.marmeladamovie.data.local.entity.MovieFavorite
 
-@Database(entities = [MovieFavorite::class], version = 1)
+@Database(entities = [MovieFavorite::class], version = 6)
 abstract class AppDatabase : RoomDatabase() {
     abstract val favoriteDAO : FavoriteDAO
 }
