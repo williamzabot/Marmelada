@@ -82,7 +82,6 @@ class MovieDetailFragment : Fragment() {
                 }
             } else {
                 viewModel.favorite(movie)
-                movie.favorite = true
                 binding.detailFavorite.setImageDrawable(heartOk)
                 Toast.makeText(
                     requireContext(),
@@ -116,27 +115,22 @@ class MovieDetailFragment : Fragment() {
         val urlPoster = "https://image.tmdb.org/t/p/w154${movie.poster_path}"
         val urlBanner = "https://image.tmdb.org/t/p/w500${movie.backdrop_path}"
         binding.apply {
-          /*  if(movie.media_type == "tv"){
-                separateYear.visi
-
-            }*/
-
             imageviewDetail.load(urlPoster)
             bannerDetail.load(urlBanner)
-            if (movie.title == null) {
-                detailTitle.text = movie.name
-            } else {
-                detailTitle.text = movie.title
-            }
             detailSynopsis.text = movie.overview
             detailYear.text = movie.release_date?.year()
             detailDate.text = movie.release_date?.toDate()
             ratingBar.rating = (movie.vote_average / 2).toFloat()
-
             if (movie.favorite) {
                 detailFavorite.setImageDrawable(heartOk)
             } else {
                 detailFavorite.setImageDrawable(heartAdd)
+            }
+            if (movie.media_type == "tv") {
+                detailTitle.text = movie.name
+
+            } else {
+                detailTitle.text = movie.title
             }
         }
     }

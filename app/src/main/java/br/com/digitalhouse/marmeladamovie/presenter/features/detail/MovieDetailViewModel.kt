@@ -37,6 +37,8 @@ class MovieDetailViewModel @Inject constructor(
     fun favorite(movie: Movie) {
         viewModelScope.launch {
             favoriteRepository.insert(movie.toFavorite())
+        }.invokeOnCompletion {
+            checkIsFavorite(movie.id)
         }
     }
 
