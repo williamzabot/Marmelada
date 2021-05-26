@@ -17,6 +17,12 @@
             app:popUpTo="@id/loginFragment"
             />
 
+        <action
+            android:id="@+id/login_to_reset"
+            app:destination="@id/resetFragment"
+            app:popUpTo="@id/loginFragment"
+            />
+
     </fragment>
 
     <fragment
@@ -27,6 +33,7 @@
 
     <fragment
         android:id="@+id/resetFragment"
+        android:label="Resetar Senha"
         android:name="br.com.digitalhouse.marmeladamovie.presenter.features.loginfeats.reset.ResetFragment"
         tools:layout="@layout/fragment_reset" />
 

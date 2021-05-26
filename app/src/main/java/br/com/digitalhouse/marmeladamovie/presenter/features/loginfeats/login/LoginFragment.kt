@@ -36,7 +36,7 @@ class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-    private val firebaseAuth = FirebaseAuth.getInstance()
+    private val auth = FirebaseAuth.getInstance()
     private val callbackManager = CallbackManager.Factory.create()
     private lateinit var googleSignInClient: GoogleSignInClient
     private val loginManager = LoginManager.getInstance()
@@ -63,6 +63,10 @@ class LoginFragment : Fragment() {
 
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), googleSignOptions)
 
+        clickEvents()
+    }
+
+    private fun clickEvents() {
         binding.apply {
             iconGoogle.setOnClickListener {
                 googleSignInClient.signOut()
@@ -76,6 +80,26 @@ class LoginFragment : Fragment() {
 
             txtRegister.setOnClickListener {
                 navController.navigate(LoginFragmentDirections.loginToRegister())
+            }
+
+            buttonLogin.setOnClickListener {
+                if (loginEmail.text != null && loginEmail.text!!.isNotEmpty()
+                    && loginPassword.text != null && loginPassword.text!!.isNotBlank()
+                ) {
+                    auth.signInWithEmailAndPassword(
+                        loginEmail.text.toString(),
+                        loginPassword.text.toString()
+                    ).addOnSuccessListener {
+                        goToHome()
+                    }
+                        .addOnFailureListener {
+                            Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                        }
+                }
+            }
+
+            txtReset.setOnClickListener {
+                navController.navigate(LoginFragmentDirections.loginToReset())
             }
         }
     }
@@ -119,7 +143,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginFirebaseAuth(credential: AuthCredential) {
-        firebaseAuth.signInWithCredential(credential)
+        auth.signInWithCredential(credential)
             .addOnSuccessListener {
                 goToHome()
                 Toast.makeText(requireContext(), "Success", Toast.LENGTH_LONG).show()
