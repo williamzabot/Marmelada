@@ -9,12 +9,15 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import br.com.digitalhouse.marmeladamovie.R
 import br.com.digitalhouse.marmeladamovie.presenter.features.loginfeats.LoginActivity
+import br.com.digitalhouse.marmeladamovie.presenter.model.User
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private val auth = FirebaseAuth.getInstance()
+    private val realtime = FirebaseDatabase.getInstance().getReference("users/${auth.currentUser.email}")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -22,9 +25,15 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         val emailTv = view.findViewById<TextView>(R.id.txvEmail)
         val profileImg = view.findViewById<ImageView>(R.id.imageView)
 
-        Glide.with(requireContext()).load(auth.currentUser?.photoUrl).into(profileImg)
-        nomeTv.text = auth.currentUser?.displayName
-        emailTv.text = auth.currentUser?.email
+        realtime.get().addOnSuccessListener {
+            val user = it.getValue(User::class.java)
+            nomeTv.text = user?.name
+            emailTv.text = user?.email
+        }.addOnFailureListener {
+            Glide.with(requireContext()).load(auth.currentUser?.photoUrl).into(profileImg)
+            nomeTv.text = auth.currentUser?.displayName
+            emailTv.text = auth.currentUser?.email
+        }
 
         view.findViewById<Button>(R.id.signOut).setOnClickListener {
             auth.signOut()
