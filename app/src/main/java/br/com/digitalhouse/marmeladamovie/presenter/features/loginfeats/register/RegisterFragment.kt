@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import br.com.digitalhouse.marmeladamovie.R
+import br.com.digitalhouse.marmeladamovie.presenter.extensions.toValidId
 import br.com.digitalhouse.marmeladamovie.presenter.model.User
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -24,7 +25,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         val btn = view.findViewById<Button>(R.id.register_button)
         val emailCheck = view.findViewById<TextInputEditText>(R.id.email_register)
         val passwordCheck = view.findViewById<TextInputEditText>(R.id.passowrd_register)
-        val nameCheck = view.findViewById<TextInputEditText>(R.id.register_name)
+        val nameCheck = view.findViewById<TextInputEditText>(R.id.name_register)
 
         btn?.setOnClickListener {
             if (emailCheck.text != null && emailCheck.text!!.isNotEmpty() &&
@@ -33,7 +34,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 auth.createUserWithEmailAndPassword(emailCheck.text.toString(), passwordCheck.text.toString())
                     .addOnSuccessListener {
                         val user = User(nameCheck.text.toString(), emailCheck.text.toString())
-                        realtime.child("users").child(emailCheck.text.toString()).setValue(user)
+                        realtime.child("users").child(emailCheck.text.toString().toValidId()).setValue(user)
                         Toast.makeText(
                             requireContext(),
                             "Você foi registrado com sucesso!",
@@ -41,6 +42,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                         ).show()
                         emailCheck.text?.clear()
                         passwordCheck.text?.clear()
+                        nameCheck.text?.clear()
                     }.addOnFailureListener {
                         val msg = answers(it.message.toString())
                         Toast.makeText(requireContext(), msg, duration).show()
