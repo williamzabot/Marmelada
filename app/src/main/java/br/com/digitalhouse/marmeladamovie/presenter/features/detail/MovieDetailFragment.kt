@@ -68,6 +68,7 @@ class MovieDetailFragment : Fragment() {
             viewModel.checkIsFavorite(args.movie!!.id)
             args.movie!!
         } else {
+            favorite =  args.favorite
             args.favorite?.toMovie()!!
         }
     }

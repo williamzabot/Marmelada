@@ -133,7 +133,7 @@
             style="?android:attr/ratingBarStyleIndicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:isIndicator="false"
+            android:isIndicator="true"
             android:max="5"
             android:scaleX=".5"
             android:scaleY=".5"
