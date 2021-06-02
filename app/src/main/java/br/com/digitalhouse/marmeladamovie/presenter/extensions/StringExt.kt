@@ -25,5 +25,5 @@ fun String.toDate(): String? {
 }
 
 fun String.toValidId() : String {
-    return this.replace(".", "").replace("@", "").replace("-", ".")
+    return this.replace(".", "").replace("@", "").replace("-", "")
 }
