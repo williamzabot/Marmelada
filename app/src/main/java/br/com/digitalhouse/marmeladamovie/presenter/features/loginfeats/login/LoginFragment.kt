@@ -73,10 +73,10 @@ class LoginFragment : Fragment() {
                 startActivityForResult(googleSignInClient.signInIntent, 200)
             }
 
-            buttonFacebook.setOnClickListener {
+            /*buttonFacebook.setOnClickListener {
                 tryLoginFacebook = true
                 loginFacebook()
-            }
+            }*/
 
             txtRegister.setOnClickListener {
                 navController.navigate(LoginFragmentDirections.loginToRegister())
