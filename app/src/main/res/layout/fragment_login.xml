@@ -105,6 +105,7 @@
             app:layout_constraintTop_toBottomOf="@id/button_login" />
 
         <TextView
+            android:id="@+id/ou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="OU"
@@ -130,19 +131,11 @@
             android:id="@+id/icon_google"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/google_icon"
-            app:layout_constraintEnd_toEndOf="@id/view_line_one"
-            app:layout_constraintTop_toBottomOf="@id/view_line_one" />
-
-        <ImageView
-            android:id="@+id/buttonFacebook"
-            android:layout_width="60dp"
-            android:src="@drawable/facebook_icon"
-            android:layout_height="60dp"
-            android:layout_marginTop="14dp"
-            app:layout_constraintStart_toStartOf="@id/view_line_two"
-            app:layout_constraintTop_toBottomOf="@id/view_line_two" />
+            app:layout_constraintEnd_toStartOf="@id/view_line_two"
+            app:layout_constraintStart_toEndOf="@id/view_line_one"
+            app:layout_constraintTop_toBottomOf="@id/ou" />
 
         <TextView
             android:id="@+id/txt_register"
@@ -156,6 +149,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonFacebook" />
+            app:layout_constraintTop_toBottomOf="@+id/icon_google" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
