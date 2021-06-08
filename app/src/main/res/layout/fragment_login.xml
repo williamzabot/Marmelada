@@ -22,7 +22,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/login_layout_email"
-            android:layout_width="340dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             app:errorEnabled="true"
@@ -44,7 +44,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/login_layout_password"
-            android:layout_width="340dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             app:errorEnabled="true"

@@ -14,6 +14,8 @@ import br.com.digitalhouse.marmeladamovie.domain.repositories.FavoriteRepository
 import br.com.digitalhouse.marmeladamovie.domain.repositories.MovieRepository
 import br.com.digitalhouse.marmeladamovie.domain.usecases.StreamingUseCase
 import br.com.digitalhouse.marmeladamovie.domain.utils.Result
+import br.com.digitalhouse.marmeladamovie.presenter.extensions.toValidId
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,6 +26,9 @@ class MovieDetailViewModel @Inject constructor(
     private val favoriteRepository: FavoriteRepository
 ) :
     ViewModel() {
+
+    private val auth = FirebaseAuth.getInstance()
+    private val userId = auth.currentUser.email.toValidId()
 
     private val _isFavorite = MutableLiveData<MovieFavorite>()
     val isFavorite: LiveData<MovieFavorite> = _isFavorite
@@ -36,7 +41,7 @@ class MovieDetailViewModel @Inject constructor(
 
     fun favorite(movie: Movie) {
         viewModelScope.launch {
-            favoriteRepository.insert(movie.toFavorite())
+            favoriteRepository.insert(movie.toFavorite(userId))
         }.invokeOnCompletion {
             checkIsFavorite(movie.id)
         }
@@ -59,7 +64,7 @@ class MovieDetailViewModel @Inject constructor(
 
     fun checkIsFavorite(id: Int) {
         viewModelScope.launch {
-            for (fav in favoriteRepository.getFavorites()) {
+            for (fav in favoriteRepository.getFavorites(userId)) {
                 if (fav.id == id) {
                     _isFavorite.postValue(fav)
                 }

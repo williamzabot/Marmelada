@@ -188,6 +188,7 @@
             android:id="@+id/detail_favorite"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            app:layout_constraintEnd_toStartOf="@id/detail_see_trailer"
             android:layout_marginStart="50dp"
             android:src="@drawable/heartadd"
             app:layout_constraintBottom_toBottomOf="@id/imageview_detail"
@@ -201,6 +202,7 @@
             android:src="@drawable/play"
             app:layout_constraintBottom_toBottomOf="@id/detail_favorite"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/detail_favorite"
             app:layout_constraintTop_toTopOf="@id/detail_favorite" />
 
         <TextView
