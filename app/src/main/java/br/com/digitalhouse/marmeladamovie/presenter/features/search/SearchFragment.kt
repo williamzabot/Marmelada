@@ -3,18 +3,15 @@ package br.com.digitalhouse.marmeladamovie.presenter.features.search
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import br.com.digitalhouse.marmeladamovie.databinding.FragmentSearchBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -24,7 +21,10 @@ class SearchFragment : Fragment() {
     private val viewModel by viewModels<SearchViewModel>()
     private val searchAdapter by lazy {
         SearchAdapter { movie ->
-            findNavController().navigate(SearchFragmentDirections.actionSearchToDetail(movie, null))
+            findNavController().navigate(SearchFragmentDirections.actionSearchToDetail(
+                movie = movie,
+                favorite = null
+            ))
         }
     }
 

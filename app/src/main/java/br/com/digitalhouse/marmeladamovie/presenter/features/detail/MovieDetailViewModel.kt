@@ -7,15 +7,10 @@ import androidx.lifecycle.viewModelScope
 import br.com.digitalhouse.marmeladamovie.data.local.entity.MovieFavorite
 import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.Movie
 import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.streaming.BR
-import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.streaming.Flatrate
-import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.streaming.Streaming
 import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.toFavorite
 import br.com.digitalhouse.marmeladamovie.domain.repositories.FavoriteRepository
-import br.com.digitalhouse.marmeladamovie.domain.repositories.MovieRepository
 import br.com.digitalhouse.marmeladamovie.domain.usecases.StreamingUseCase
 import br.com.digitalhouse.marmeladamovie.domain.utils.Result
-import br.com.digitalhouse.marmeladamovie.presenter.extensions.toValidId
-import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -27,8 +22,6 @@ class MovieDetailViewModel @Inject constructor(
 ) :
     ViewModel() {
 
-    private val auth = FirebaseAuth.getInstance()
-    private val userId = auth.currentUser.email.toValidId()
 
     private val _isFavorite = MutableLiveData<MovieFavorite>()
     val isFavorite: LiveData<MovieFavorite> = _isFavorite
@@ -41,7 +34,7 @@ class MovieDetailViewModel @Inject constructor(
 
     fun favorite(movie: Movie) {
         viewModelScope.launch {
-            favoriteRepository.insert(movie.toFavorite(userId))
+            favoriteRepository.insert(movie.toFavorite())
         }.invokeOnCompletion {
             checkIsFavorite(movie.id)
         }
@@ -64,7 +57,7 @@ class MovieDetailViewModel @Inject constructor(
 
     fun checkIsFavorite(id: Int) {
         viewModelScope.launch {
-            for (fav in favoriteRepository.getFavorites(userId)) {
+            for (fav in favoriteRepository.getFavorites()) {
                 if (fav.id == id) {
                     _isFavorite.postValue(fav)
                 }

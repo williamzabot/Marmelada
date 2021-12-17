@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.RecyclerView
 import br.com.digitalhouse.marmeladamovie.R
 import br.com.digitalhouse.marmeladamovie.data.local.entity.MovieFavorite
 import br.com.digitalhouse.marmeladamovie.data.local.entity.toMovie
@@ -25,7 +26,6 @@ import br.com.digitalhouse.marmeladamovie.presenter.extensions.load
 import br.com.digitalhouse.marmeladamovie.presenter.extensions.toDate
 import br.com.digitalhouse.marmeladamovie.presenter.extensions.year
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.Exception
 
 @AndroidEntryPoint
 class MovieDetailFragment : Fragment() {
@@ -62,7 +62,12 @@ class MovieDetailFragment : Fragment() {
         try {
             startActivity(Intent(ACTION_VIEW, Uri.parse("vnd.youtube:$youtubeID")))
         } catch (ex: ActivityNotFoundException) {
-            startActivity(Intent(ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=$youtubeID")))
+            startActivity(
+                Intent(
+                    ACTION_VIEW,
+                    Uri.parse("http://www.youtube.com/watch?v=$youtubeID")
+                )
+            )
         }
     }
 
@@ -115,15 +120,22 @@ class MovieDetailFragment : Fragment() {
             binding.detailFavorite.setImageDrawable(heartOk)
         })
 
-        viewModel.streaming.observe(viewLifecycleOwner, Observer {
+        viewModel.streaming.observe(viewLifecycleOwner) { data ->
             try {
-                if (it.flatrate != null) {
-                    binding.recyclerViewStreamings.adapter = StreamingAdapter(it.flatrate)
+                val players = data.flatrate
+                if (players != null && players.isNotEmpty()) {
+                    binding.recyclerViewStreamings.adapter = StreamingAdapter(players)
+                    if (players.size <= 2) {
+                        binding.recyclerViewStreamings.layoutParams.width =
+                            RecyclerView.LayoutParams.WRAP_CONTENT
+                    }
+                } else {
+                    binding.titleStreamings.visibility = View.GONE
                 }
             } catch (ex: Exception) {
                 binding.titleStreamings.visibility = View.GONE
             }
-        })
+        }
     }
 
     private fun loadData() {
@@ -144,7 +156,6 @@ class MovieDetailFragment : Fragment() {
             }
             if (movie.media_type == "tv") {
                 detailTitle.text = movie.name
-
             } else {
                 detailTitle.text = movie.title
             }

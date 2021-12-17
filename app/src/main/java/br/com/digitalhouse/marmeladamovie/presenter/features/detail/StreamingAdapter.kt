@@ -25,9 +25,7 @@ class StreamingAdapter(private val streaming: List<Flatrate>) :
     override fun getItemCount() = streaming.size
 
     override fun onBindViewHolder(holder: StreamingViewHolder, position: Int) {
-        if (itemCount <= 3) {
             holder.bind(streaming[position])
-        }
     }
 
     class StreamingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

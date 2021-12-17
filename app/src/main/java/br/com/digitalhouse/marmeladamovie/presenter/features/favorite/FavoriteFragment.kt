@@ -5,7 +5,6 @@ import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.com.digitalhouse.marmeladamovie.R
@@ -35,13 +34,13 @@ class FavoriteFragment : Fragment(R.layout.fragment_favorite) {
     }
 
     private fun observeEvents() {
-        viewModel.favorites.observe(viewLifecycleOwner, Observer { favorites ->
+        viewModel.favorites.observe(viewLifecycleOwner) { favorites ->
             if (favorites.isNotEmpty()) {
                 adapter.favorites = favorites
                 viewNoFavorites.visibility = View.GONE
                 recyclerView.visibility = View.VISIBLE
             }
-        })
+        }
     }
 
 }

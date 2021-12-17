@@ -36,12 +36,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="br.com.digitalhouse.marmeladamovie.presenter.features.profile.ProfileFragment"
-        android:label="Perfil"
-        tools:layout="@layout/fragment_profile" />
-
-    <fragment
         android:id="@+id/searchFragment"
         android:name="br.com.digitalhouse.marmeladamovie.presenter.features.search.SearchFragment"
         android:label="Pesquisa"

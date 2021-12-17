@@ -47,9 +47,6 @@ dependencies {
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //lifecycle (viewModel, LiveData)
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
@@ -58,8 +55,8 @@ dependencies {
     //retrofit e OkHttpClient
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.squareup.okhttp3:okhttp:4.8.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.2'
 
     def room_version = "2.4.0"
     implementation "androidx.room:room-runtime:$room_version"
@@ -67,22 +64,19 @@ dependencies {
     implementation "androidx.room:room-ktx:$room_version"
 
     //navigation
-    def nav_version = "2.3.0"
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
 
-    //firebase, google e facebook
+    //firebase
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
-    implementation 'com.facebook.android:facebook-login:4.42.0'
     implementation 'com.google.firebase:firebase-database-ktx'
 
     //paging library
     implementation "androidx.paging:paging-runtime-ktx:3.1.0"
 
     //glide
-    def glide_version = "4.9.0"
+    def glide_version = "4.12.0"
     implementation "com.github.bumptech.glide:glide:$glide_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
@@ -96,4 +90,9 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:$hilt_lifecycle_version"
     
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //tests
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }

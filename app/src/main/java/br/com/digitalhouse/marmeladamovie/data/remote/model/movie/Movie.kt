@@ -23,7 +23,7 @@ data class Movie(
     var idFavorite: Long = 0
 ) : Serializable
 
-fun Movie.toFavorite(userId : String): MovieFavorite {
+fun Movie.toFavorite(): MovieFavorite {
     return MovieFavorite(
         adult = adult,
         backdrop_path = backdrop_path,
@@ -39,8 +39,7 @@ fun Movie.toFavorite(userId : String): MovieFavorite {
         title = title,
         video = video,
         vote_average = vote_average,
-        vote_count = vote_count,
-        userId = userId
+        vote_count = vote_count
     )
 
 }
