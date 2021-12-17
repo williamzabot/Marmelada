@@ -7,8 +7,8 @@ import javax.inject.Inject
 
 class FavoriteRepositoryImpl @Inject constructor(private val favoriteDAO: FavoriteDAO) :
     FavoriteRepository {
-    override suspend fun getFavorites(): List<MovieFavorite> {
-        return favoriteDAO.getFavorites()
+    override suspend fun getFavorites(userId : String): List<MovieFavorite> {
+        return favoriteDAO.getFavorites(userId)
     }
 
     override suspend fun insert(movie: MovieFavorite): Long {

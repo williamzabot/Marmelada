@@ -8,13 +8,11 @@ import br.com.digitalhouse.marmeladamovie.presenter.extensions.load
 class MovieViewHolder(binding: ItemFilmsSeriesBinding) :
     RecyclerView.ViewHolder(binding.root) {
     private val txtTitle = binding.movieTitle
-    private val txtDate = binding.movieData
     private val img = binding.movieImg
 
     fun bind(movie: Movie) {
         val url = "https://image.tmdb.org/t/p/w154${movie.poster_path}"
         txtTitle.text = movie.title
-        txtDate.text = movie.release_date
         img.load(url)
     }
 }

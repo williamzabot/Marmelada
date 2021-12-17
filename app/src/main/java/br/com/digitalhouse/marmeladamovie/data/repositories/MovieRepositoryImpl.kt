@@ -3,12 +3,12 @@ package br.com.digitalhouse.marmeladamovie.data.repositories
 import br.com.digitalhouse.marmeladamovie.data.di.RetrofitModule
 import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.MovieResults
 import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.streaming.Streaming
-import br.com.digitalhouse.marmeladamovie.data.remote.model.search.SearchResult
+import br.com.digitalhouse.marmeladamovie.domain.exception.NotFoundException
 import br.com.digitalhouse.marmeladamovie.domain.repositories.MovieRepository
 import br.com.digitalhouse.marmeladamovie.domain.utils.Result
-import br.com.digitalhouse.marmeladamovie.domain.utils.Result.*
+import br.com.digitalhouse.marmeladamovie.domain.utils.Result.Failure
+import br.com.digitalhouse.marmeladamovie.domain.utils.Result.Success
 import br.com.digitalhouse.marmeladamovie.domain.utils.TOKEN
-import java.lang.Exception
 import javax.inject.Inject
 
 class MovieRepositoryImpl @Inject constructor() : MovieRepository {
@@ -19,6 +19,7 @@ class MovieRepositoryImpl @Inject constructor() : MovieRepository {
         val response = movieApi.getPopularMovies(TOKEN, page, "pt-br")
         return when (response.code()) {
             200 -> Success(response.body()!!)
+            404 -> Failure(NotFoundException)
             else -> Failure(Exception())
         }
     }

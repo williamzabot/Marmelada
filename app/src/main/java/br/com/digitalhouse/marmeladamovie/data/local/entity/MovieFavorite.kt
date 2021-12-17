@@ -23,7 +23,8 @@ data class MovieFavorite(
     val title: String?,
     val video: Boolean,
     val vote_average: Double,
-    val vote_count: Int
+    val vote_count: Int,
+    val userId : String
 ) : Serializable
 
 fun MovieFavorite.toMovie(): Movie {

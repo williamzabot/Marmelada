@@ -2,6 +2,9 @@ package br.com.digitalhouse.marmeladamovie.presenter.features.profile
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -20,6 +23,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private val auth = FirebaseAuth.getInstance()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -41,13 +49,25 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }.addOnFailureListener {
             userOfGoogleOrFace(profileImg, nomeTv, emailTv)
         }
+    }
 
-        view.findViewById<Button>(R.id.signOut).setOnClickListener {
-            auth.signOut()
-            val intent = Intent(requireContext(), LoginActivity::class.java)
-            startActivity(intent)
-            activity?.finish()
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.exit_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.exitMenu -> {
+                auth.signOut()
+                val intent = Intent(requireContext(), LoginActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
+
     }
 
     private fun userOfGoogleOrFace(

@@ -1,6 +1,10 @@
 package br.com.digitalhouse.marmeladamovie.presenter.features.detail
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.content.Intent.ACTION_VIEW
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -49,6 +53,17 @@ class MovieDetailFragment : Fragment() {
         initView()
         observeEvents()
         heartClick()
+        binding.detailSeeTrailer.setOnClickListener {
+            openYoutubeLink("/results?search_query=trailer${args.movie?.title}")
+        }
+    }
+
+    private fun openYoutubeLink(youtubeID: String) {
+        try {
+            startActivity(Intent(ACTION_VIEW, Uri.parse("vnd.youtube:$youtubeID")))
+        } catch (ex: ActivityNotFoundException) {
+            startActivity(Intent(ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=$youtubeID")))
+        }
     }
 
     private fun initView() {
@@ -68,7 +83,7 @@ class MovieDetailFragment : Fragment() {
             viewModel.checkIsFavorite(args.movie!!.id)
             args.movie!!
         } else {
-            favorite =  args.favorite
+            favorite = args.favorite
             args.favorite?.toMovie()!!
         }
     }
