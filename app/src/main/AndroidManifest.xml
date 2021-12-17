@@ -18,7 +18,8 @@
         <activity
             android:name="br.com.digitalhouse.marmeladamovie.presenter.features.home.HomeActivity" />
         <activity android:name="br.com.digitalhouse.marmeladamovie.presenter.features.loginfeats.LoginActivity" />
-        <activity android:name="br.com.digitalhouse.marmeladamovie.presenter.features.splash.SplashActivity">
+        <activity android:name="br.com.digitalhouse.marmeladamovie.presenter.features.splash.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

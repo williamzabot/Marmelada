@@ -1,6 +1,7 @@
 package br.com.digitalhouse.marmeladamovie.presenter.features.home
 
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import br.com.digitalhouse.marmeladamovie.data.remote.model.movie.Movie
 import br.com.digitalhouse.marmeladamovie.domain.usecases.MovieUseCase
 import br.com.digitalhouse.marmeladamovie.domain.utils.Result
@@ -25,5 +26,9 @@ class MoviePagingSource (private val movieUseCase: MovieUseCase) : PagingSource<
         } catch (exception: HttpException) {
             LoadResult.Error(exception)
         }
+    }
+
+    override fun getRefreshKey(state: PagingState<Int, Movie>): Int? {
+        return state.anchorPosition
     }
 }
